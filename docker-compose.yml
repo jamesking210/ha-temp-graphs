@@ -1,0 +1,11 @@
+services:
+  ha-temp-graphs:
+    build: .
+    container_name: ha-temp-graphs
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "8090:8090"
+    volumes:
+      - ./data:/app/data
