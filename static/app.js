@@ -2,12 +2,12 @@ const RANGE_DEFAULT = { hours: 24, label: "Last 24 hours" };
 let currentRange = { ...RANGE_DEFAULT };
 let tempChart = null;
 let appConfig = null;
-const fmtNumber = new Intl.NumberFormat("en-US", { maximumFractionDigits: 1 });
+const fmtNumber = new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 });
 const el = (id) => document.getElementById(id);
 
 function formatTemp(value, unit) {
   if (value === null || value === undefined || Number.isNaN(Number(value))) return "--";
-  return `${fmtNumber.format(Number(value))}${unit || "°F"}`;
+  return `${fmtNumber.format(Math.round(Number(value)))}${unit || "°F"}`;
 }
 
 function formatDateTime(isoString) {
@@ -61,7 +61,7 @@ function buildDatasets(readings) {
   const outsidePoints = [];
   const hallwayPoints = [];
   for (const item of readings) {
-    const point = { x: item.ts, y: Number(item.value) };
+    const point = { x: item.ts, y: Math.round(Number(item.value)) };
     if (item.sensor_key === "outside") outsidePoints.push(point);
     if (item.sensor_key === "hallway") hallwayPoints.push(point);
   }
@@ -83,12 +83,12 @@ function createOrUpdateChart(readings) {
         legend: { labels: { color: "#cbd5e1", boxWidth: 14, boxHeight: 14, usePointStyle: true, font: { weight: "bold" } } },
         tooltip: {
           backgroundColor: "rgba(2,6,23,.94)", borderColor: "rgba(148,163,184,.25)", borderWidth: 1, titleColor: "#f8fafc", bodyColor: "#cbd5e1", padding: 12,
-          callbacks: { title: (items) => formatDateTime(items?.[0]?.raw?.x), label: (item) => `${item.dataset.label}: ${fmtNumber.format(item.parsed.y)}°` }
+          callbacks: { title: (items) => formatDateTime(items?.[0]?.raw?.x), label: (item) => `${item.dataset.label}: ${fmtNumber.format(Math.round(item.parsed.y))}°` }
         }
       },
       scales: {
         x: { type: "time", grid: { color: "rgba(148,163,184,.08)" }, ticks: { color: "#94a3b8", maxRotation: 0, autoSkip: true, callback: (value) => formatChartTick(value) } },
-        y: { grid: { color: "rgba(148,163,184,.10)" }, ticks: { color: "#94a3b8", callback: (value) => `${value}°` } }
+        y: { grid: { color: "rgba(148,163,184,.10)" }, ticks: { color: "#94a3b8", precision: 0, callback: (value) => `${Math.round(value)}°` } }
       }
     }
   };
