@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#070b14">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>Home Temperature Graphs</title>
   <link rel="stylesheet" href="/styles.css">
 </head>
@@ -43,7 +46,7 @@
         </div>
       </div>
 
-      <div class="range-buttons" id="rangeButtons">
+      <div class="range-buttons" id="rangeButtons" aria-label="Chart range controls">
         <button class="range-button active" data-hours="24" data-label="Last 24 hours">24 hours</button>
         <button class="range-button" data-hours="72" data-label="Last 3 days">3 days</button>
         <button class="range-button" data-hours="720" data-label="Last 1 month">1 month</button>
