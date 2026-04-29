@@ -125,8 +125,7 @@ h2 { font-size: clamp(1.45rem, 3vw, 2.35rem); letter-spacing: -0.04em; }
 .footer-card { margin-top: 18px; padding: 18px 20px; display: flex; justify-content: space-between; gap: 16px; color: var(--muted); font-size: 0.92rem; }
 .footer-card strong { color: var(--text); }
 
-/* True stacked phone/tablet layout */
-@media (max-width: 900px) {
+@media (max-width: 920px) {
   html, body { overflow-x: hidden !important; }
 
   .page {
@@ -140,7 +139,7 @@ h2 { font-size: clamp(1.45rem, 3vw, 2.35rem); letter-spacing: -0.04em; }
   .hero {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 12px;
     align-items: stretch;
     width: 100%;
     margin-bottom: 12px;
@@ -149,19 +148,18 @@ h2 { font-size: clamp(1.45rem, 3vw, 2.35rem); letter-spacing: -0.04em; }
   .eyebrow { font-size: 0.62rem; letter-spacing: 0.1em; }
 
   h1 {
-    font-size: clamp(1.85rem, 8.9vw, 3rem);
+    font-size: clamp(1.8rem, 7.8vw, 2.65rem);
     line-height: 1;
     letter-spacing: -0.055em;
     max-width: 100%;
   }
 
-  h2 { font-size: clamp(1.4rem, 6.5vw, 2rem); }
-
-  .subhead { font-size: 0.9rem; line-height: 1.42; max-width: 100%; }
+  h2 { font-size: clamp(1.35rem, 5.5vw, 1.85rem); }
+  .subhead { font-size: 0.88rem; line-height: 1.35; max-width: 100%; margin-top: 8px; }
 
   .hero-actions {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 8px;
     justify-content: stretch;
     width: 100%;
@@ -170,9 +168,9 @@ h2 { font-size: clamp(1.45rem, 3vw, 2.35rem); letter-spacing: -0.04em; }
   .button {
     width: 100%;
     min-width: 0;
-    min-height: 44px;
-    padding: 11px 10px;
-    font-size: 0.84rem;
+    min-height: 42px;
+    padding: 10px 10px;
+    font-size: 0.82rem;
     white-space: normal;
     line-height: 1.1;
   }
@@ -192,29 +190,35 @@ h2 { font-size: clamp(1.45rem, 3vw, 2.35rem); letter-spacing: -0.04em; }
   }
 
   .metric-card {
-    min-height: 142px;
-    padding: 18px;
+    min-height: 132px;
+    padding: 16px;
   }
 
-  .metric-card::after { height: 130px; inset: auto -30% -48% 24%; }
-  .metric-topline { font-size: 0.68rem; letter-spacing: 0.06em; line-height: 1.25; }
-  .status-dot { width: 9px; height: 9px; }
-  .metric-value { margin-top: 16px; font-size: clamp(3.25rem, 18vw, 5rem); }
+  .metric-card::after { height: 120px; inset: auto -30% -48% 24%; }
+  .metric-topline { font-size: 0.66rem; letter-spacing: 0.055em; line-height: 1.2; }
+  .status-dot { width: 8px; height: 8px; }
+  .metric-value { margin-top: 13px; font-size: clamp(3rem, 15vw, 4.6rem); }
 
   .metric-meta {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 4px;
-    margin-top: 15px;
-    font-size: 0.8rem;
-    line-height: 1.3;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 12px;
+    font-size: 0.78rem;
+    line-height: 1.25;
   }
 
-  .metric-meta span { display: block; margin: 0; max-width: 100%; overflow-wrap: anywhere; }
+  .metric-meta span:first-child {
+    display: none;
+  }
+
+  .metric-meta span:last-child {
+    margin-left: auto;
+  }
 
   .chart-card { min-height: 0; padding: 16px 10px 10px; overflow: hidden; }
   .chart-header { display: block; margin-bottom: 12px; padding: 0 4px; }
-  .chart-meta { font-size: 0.85rem; line-height: 1.35; }
+  .chart-meta { font-size: 0.82rem; line-height: 1.25; }
 
   .range-buttons {
     display: flex;
@@ -224,50 +228,52 @@ h2 { font-size: clamp(1.45rem, 3vw, 2.35rem); letter-spacing: -0.04em; }
     gap: 8px;
     width: calc(100% + 20px);
     max-width: calc(100% + 20px);
-    margin: 0 -10px 14px;
+    margin: 0 -10px 12px;
     padding: 0 10px 8px;
     scroll-snap-type: x proximity;
     -webkit-overflow-scrolling: touch;
   }
 
-  .range-buttons::-webkit-scrollbar { height: 4px; }
+  .range-buttons::-webkit-scrollbar { height: 3px; }
   .range-buttons::-webkit-scrollbar-thumb { background: rgba(148, 163, 184, 0.28); border-radius: 999px; }
 
   .range-button {
     flex: 0 0 auto;
-    min-height: 42px;
-    padding: 10px 13px;
-    font-size: 0.84rem;
+    min-height: 38px;
+    padding: 9px 12px;
+    font-size: 0.78rem;
     scroll-snap-align: start;
     white-space: nowrap;
   }
 
   .chart-wrap {
-    height: 430px;
-    min-height: 430px;
+    height: 330px;
+    min-height: 330px;
     width: 100%;
     max-width: 100%;
-    padding: 8px;
+    padding: 6px;
     border-radius: 18px;
     overflow: hidden;
   }
 
   .footer-card {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 8px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
     margin-top: 12px;
-    padding: 14px 16px;
-    font-size: 0.84rem;
-    line-height: 1.35;
+    padding: 12px 14px;
+    font-size: 0.78rem;
+    line-height: 1.25;
   }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 430px) {
   .page { padding-left: 8px; padding-right: 8px; }
-  h1 { font-size: 1.75rem; }
-  .metric-card { padding: 16px; }
-  .metric-value { font-size: 3.35rem; }
+  h1 { font-size: 1.72rem; }
+  .subhead { font-size: 0.84rem; }
+  .metric-card { padding: 15px; min-height: 124px; }
+  .metric-value { font-size: 3.25rem; }
   .chart-card { padding: 14px 8px 8px; }
-  .chart-wrap { height: 390px; min-height: 390px; }
+  .chart-wrap { height: 305px; min-height: 305px; }
+  .footer-card { display: grid; grid-template-columns: 1fr; gap: 6px; }
 }
